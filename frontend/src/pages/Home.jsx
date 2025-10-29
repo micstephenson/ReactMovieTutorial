@@ -8,7 +8,6 @@ function Home(){
     const [movies, setMovies] = useState([]);
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(true);
-    let anything = " "
 
   useEffect(() => {
     const loadPopularMovies = async () => {
@@ -34,7 +33,6 @@ function Home(){
         setLoading(true)
         try {
             const searchResults = await searchMovies(searchQuery)
-            console.log("Search results:", searchResults)
             setMovies(searchResults || [])
             setError(null)
         } catch (err) {
@@ -43,8 +41,6 @@ function Home(){
         } finally {
             setLoading(false)
         }
-        
-        setSearchQuery("");
     };
 
     return (
